@@ -15,7 +15,7 @@ export default function RepoCard({ name, desc, created }) {
       </div>
 
       <div className="repo-card-footer">
-        <p className="repo-card__date">{`Created ${new Date(created).toLocaleDateString('en-us', { weekday:'long', year:'numeric', month:'short', day:'numeric'})}`}</p>
+        <p className="repo-card__date">{`Created ${new Date(created).toLocaleDateString('en-us', { weekday:'short', year:'numeric', month:'short', day:'numeric'})}`}</p>
         <Link to={{ pathname: `/repositories/${name}` }}>
           <img alt="" src={gitLogoSmall} />
         </Link>
