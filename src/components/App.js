@@ -1,11 +1,8 @@
-import '../App.css';
-import RepoCard from './RepoCard';
+import "../App.css";
 
 function App() {
   return (
-    <div>
-      <RepoCard name="alt-stats" desc="" created="2011-01-26T19:01:12Z"/>
-    </div>
+    <></>
   );
 }
 
