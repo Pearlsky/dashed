@@ -1,4 +1,5 @@
 import RepoCard from "../../components/RepoCard";
+import StatusBar from "../../components/StatusBar";
 
 export function RepoList({ data }) {
   return (
@@ -21,5 +22,9 @@ export function RepoList({ data }) {
 }
 
 export default function RepositoriesPage() {
-    return <main></main>;
+  return (
+    <main className="tab-main">
+      <StatusBar/>
+    </main>
+  );
 }

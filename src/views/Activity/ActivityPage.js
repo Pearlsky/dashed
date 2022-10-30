@@ -1,3 +1,3 @@
 export default function ActivityPage() {
-    return <main ></main>;
+    return <main className="tab-main"></main>;
 }

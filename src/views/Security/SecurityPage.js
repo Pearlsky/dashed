@@ -1,3 +1,3 @@
 export default function SecurityPage() {
-    return <main></main>;
+    return <main className="tab-main"></main>;
 }

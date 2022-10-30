@@ -1,3 +1,5 @@
 export default function PreferencesPage() {
-    return <main></main>;
+    return (
+        <main className="tab-main"></main>
+    ) ;
 }
