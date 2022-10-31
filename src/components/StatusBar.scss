@@ -1,0 +1,71 @@
+@use "../util/mixins.scss" as m;
+@use "../util/variables.scss" as v;
+
+.stats-panel {
+  width: 100%;
+  padding: 2em;
+  border: solid 1px v.$line-gray;
+  border-radius: 5px;
+  color: v.$text-gray-light;
+
+  @include m.respond-to('laptop') {
+    display: flex;
+  }
+}
+
+.stats-intro {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  & h3 {
+    color: v.$text-gray;
+    margin: 0;
+  }
+
+  & p {
+    margin-block: 0.5em 0;
+  }
+}
+
+.stats-details {
+  flex-basis: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 2.5em;
+
+  @include m.respond-to('laptop') {
+    justify-content: space-around;
+    margin-top: 0;
+  }
+}
+
+.stats-detail {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  & span {
+    margin-top: .5em;
+  }
+
+  &__figure {
+    color: v.$black;
+    font-weight: bold;
+    font-size: 1.3rem;
+  }
+
+  & .total {
+    @include m.create-btn-icon(url(../assets/refresh.svg), 1.5em, 1.5em);
+  }
+
+  & .public {
+    @include m.create-btn-icon(url(../assets//unlock.svg), 1.5em, 1.5em);
+  }
+
+  & .private {
+    @include m.create-btn-icon(url(../assets//lock.svg), 1.5em, 1.5em);
+  }
+}
