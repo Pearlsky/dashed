@@ -1,13 +1,66 @@
+import { useState, useEffect } from "react";
+import { InfinitySpin } from "react-loader-spinner";
+
+import Pagination from "../../components/Pagination";
 import RepoCard from "../../components/RepoCard";
 import StatusBar from "../../components/StatusBar";
 
-export function RepoList({ data }) {
+import "./RepoPage.scss";
+
+export default function RepositoriesPage() {
+  const [repos, setRepos] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [reposPerPage] = useState(6);
+
+  useEffect(() => {
+    const fetchRepos = () => {
+      fetch("https://api.github.com/users/pearlsky/repos")
+        .then((response) => response.json())
+        .then((data) => {
+          setRepos(data);
+          setLoading(false);
+        })
+        .catch(() => {
+          throw new Error();
+        });
+    };
+    fetchRepos();
+  }, []);
+
+  const indexOfLastRepo = currentPage * reposPerPage;
+  const indexOfFirstRepo = indexOfLastRepo - reposPerPage;
+  const currentRepos = repos.slice(indexOfFirstRepo, indexOfLastRepo);
+
+  return (
+    <main className="repo-main tab-main">
+      <StatusBar />
+      <RepoList data={currentRepos} loading={loading} />
+      <Pagination
+        repos={repos}
+        reposPerPage={reposPerPage}
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+      />
+    </main>
+  );
+}
+
+export function RepoList({ data, loading }) {
+  if (loading) {
+    return (
+      <section className="repos-loader">
+        <InfinitySpin color="rgb(2, 126, 197)" width="200" />
+      </section>
+    );
+  }
+
   return (
     <section>
-      <ul className="repo-card-list">
+      <ul className="repos">
         {data.map((repo) => {
           return (
-            <li className="repo-card-item" key={repo.id}>
+            <li className="repo-card" key={repo.id}>
               <RepoCard
                 name={repo.name}
                 desc={repo.description}
@@ -18,13 +71,5 @@ export function RepoList({ data }) {
         })}
       </ul>
     </section>
-  );
-}
-
-export default function RepositoriesPage() {
-  return (
-    <main className="tab-main">
-      <StatusBar/>
-    </main>
   );
 }
