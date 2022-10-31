@@ -1,0 +1,47 @@
+@use "../util/mixins.scss" as m;
+@use "../util/variables.scss" as v;
+
+.util-panel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: v.$white;
+  padding: 2em 1.5em;
+  box-shadow: 0 0 0 1px v.$line-gray;
+  margin-bottom: 1px;
+
+  @include m.respond-to('tablet') {
+    padding-inline: 2.5em;
+  }
+}
+
+.util-search {
+  display: flex;
+  align-items: center;
+  padding: 0.5em 1em;
+  border: solid 1px v.$line-gray;
+  border-radius: 5px;
+  flex-basis: 70%;
+
+  &__icon {
+    @include m.create-btn-icon(url(../assets/Search.svg), 1.2em, 1.2em);
+  }
+
+  &__input {
+    border: none;
+    margin-left: 0.25em;
+    width: 100%;
+    outline: none;
+    font-family: v.$red-hat;
+  }
+
+  @include m.respond-to('tablet') {
+    flex-basis: 45%;
+  }
+}
+
+.btn-settings {
+  border: none;
+  background-color: transparent;
+  @include m.create-btn-icon(url(../assets/Settings-alt.svg), 1.5em, 1.5em);
+}

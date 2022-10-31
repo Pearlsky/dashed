@@ -1,3 +1,5 @@
+import "./UtilityBar.scss"
+
 export function SearchBar() {
   return (
     <label htmlFor="search-input" className="util-search">
@@ -17,7 +19,7 @@ export default function UtilityBar() {
     <section className="util-panel">
       <SearchBar />
       <div className="util-setting">
-        <button className="">settings</button>
+        <button className="btn-settings">settings</button>
       </div>
     </section>
   );
