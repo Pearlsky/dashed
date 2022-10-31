@@ -1,3 +1,5 @@
+import "./Pagination.scss";
+
 export default function Pagination({ repos, reposPerPage, currentPage, setCurrentPage }) {
   const nPages = Math.ceil(repos.length / reposPerPage);
   const pageNumbers = [];

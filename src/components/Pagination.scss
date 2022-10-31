@@ -1,0 +1,35 @@
+@use "../util/mixins.scss" as m;
+@use "../util/variables.scss" as v;
+
+.page-controls {
+  width: 100%;
+  margin-inline: auto;
+}
+
+.page-nav button {
+    color: v.$theme-blue;
+    background-color: white;
+    border: solid 1px v.$line-gray;
+    border-radius: 2px;
+    padding: 0.5em 0.7em;
+  }
+  
+  .page-nav button:disabled {
+    background-color: #ccca;
+    color: v.$text-gray;
+  }
+  
+  .page-nav button:hover {
+    border-color: v.$theme-blue;
+  }
+  
+  .page-nav button.active {
+    background-color: v.$theme-blue;
+    color: white;
+    border-color: v.$theme-blue;
+  }
+  
+  .page-nav__list {
+    display: flex;
+    justify-content: center;
+  }
