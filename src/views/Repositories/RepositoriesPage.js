@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import { Routes, Route } from "react-router-dom";
+
 import { InfinitySpin } from "react-loader-spinner";
 
 import Pagination from "../../components/Pagination";
@@ -6,6 +8,7 @@ import RepoCard from "../../components/RepoCard";
 import StatusBar from "../../components/StatusBar";
 
 import "./RepoPage.scss";
+import IndividualRepoPage from "./IndividualRepoPage";
 
 export default function RepositoriesPage() {
   const [repos, setRepos] = useState([]);
@@ -33,16 +36,21 @@ export default function RepositoriesPage() {
   const currentRepos = repos.slice(indexOfFirstRepo, indexOfLastRepo);
 
   return (
-    <main className="repo-main tab-main">
-      <StatusBar />
-      <RepoList data={currentRepos} loading={loading} />
-      <Pagination
-        repos={repos}
-        reposPerPage={reposPerPage}
-        currentPage={currentPage}
-        setCurrentPage={setCurrentPage}
-      />
-    </main>
+    <>
+      <main className="repo-main tab-main">
+        <StatusBar />
+        <RepoList data={currentRepos} loading={loading} />
+        <Pagination
+          repos={repos}
+          reposPerPage={reposPerPage}
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+        />
+      </main>
+      <Routes>
+        <Route path=":name" element={<IndividualRepoPage />} />
+      </Routes>
+    </>
   );
 }
 
