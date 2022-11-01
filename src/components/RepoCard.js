@@ -31,7 +31,7 @@ export default function RepoCard({ name, desc, created }) {
           day: "numeric",
         })}`}</p>
         <Link
-          to={{ pathname: `/repositories/${name}` }}
+          to={{ pathname: `/repo/${name}` }}
           className="repo-card__link"
         >
           <img alt="" src={gitLogoSmall} />
