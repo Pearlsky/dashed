@@ -15,6 +15,7 @@ import SecurityPage from "../views/Security/SecurityPage";
 
 import "./App.scss";
 import UtilityBar from "./UtilityBar";
+import IndividualRepoPage from "../views/Repositories/IndividualRepoPage";
 
 export default function App() {
   const [user, setUser] = useState("");
@@ -88,6 +89,7 @@ export default function App() {
 
         <Routes>
           <Route path="/repos" element={<RepositoriesPage />} />
+          <Route path="/repo/*" element={<IndividualRepoPage/>} />
           <Route strict path="/activity" element={<ActivityPage />} />
           <Route strict path="/people" element={<PeoplePage />} />
           <Route strict path="/preferences" element={<PreferencesPage />} />
