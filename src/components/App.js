@@ -19,10 +19,11 @@ import IndividualRepoPage from "../views/Repositories/IndividualRepoPage";
 
 export default function App() {
   const [user, setUser] = useState("");
+  const [owner] = useState("pearlsky");
 
   useEffect(() => {
     const fetchUser = () => {
-      fetch("https://api.github.com/users/pearlsky")
+      fetch(`https://api.github.com/users/${owner}`)
       .then((response) => response.json())
       .then((data) => setUser(data) )
       .catch(() => {
@@ -31,7 +32,7 @@ export default function App() {
     }
 
     fetchUser();
-  }, []);
+  }, [owner]);
 
   const userAvatar = user ? (
     <img alt="user-avatar" src={user.avatar_url} className="user-img__real"></img>
@@ -88,8 +89,8 @@ export default function App() {
         <UtilityBar />
 
         <Routes>
-          <Route path="/repos" element={<RepositoriesPage />} />
-          <Route path="/repo/*" element={<IndividualRepoPage/>} />
+          <Route path="/repos" element={<RepositoriesPage owner={owner} />} />
+          <Route path="/repo/*" element={<IndividualRepoPage owner={owner}/>} />
           <Route strict path="/activity" element={<ActivityPage />} />
           <Route strict path="/people" element={<PeoplePage />} />
           <Route strict path="/preferences" element={<PreferencesPage />} />
