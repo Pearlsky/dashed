@@ -10,7 +10,7 @@ import StatusBar from "../../components/StatusBar";
 import "./RepoPage.scss";
 import IndividualRepoPage from "./IndividualRepoPage";
 
-export default function RepositoriesPage() {
+export default function RepositoriesPage({ owner }) {
   const [repos, setRepos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
@@ -18,7 +18,7 @@ export default function RepositoriesPage() {
 
   useEffect(() => {
     const fetchRepos = () => {
-      fetch("https://api.github.com/users/pearlsky/repos")
+      fetch(`https://api.github.com/users/${owner}/repos`)
         .then((response) => response.json())
         .then((data) => {
           setRepos(data);
@@ -29,7 +29,7 @@ export default function RepositoriesPage() {
         });
     };
     fetchRepos();
-  }, []);
+  }, [owner]);
 
   const indexOfLastRepo = currentPage * reposPerPage;
   const indexOfFirstRepo = indexOfLastRepo - reposPerPage;
@@ -37,7 +37,7 @@ export default function RepositoriesPage() {
 
   return (
     <>
-      <main className="repo-main tab-main">
+      <main className="repos-main tab-main">
         <StatusBar />
         <RepoList data={currentRepos} loading={loading} />
         <Pagination
