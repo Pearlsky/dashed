@@ -2,21 +2,158 @@
 @use "../../util/mixins.scss" as m;
 
 .repos {
-    height: 100%;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2em;
-    padding-block: 2em;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2em;
+  padding-block: 2em;
 
-    @include m.respond-to('tablet') {
-        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  @include m.respond-to("tablet") {
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  }
+
+  &-loader {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5em;
+  }
+}
+
+.repo {
+  &-main {
+    display: flex;
+    flex-direction: column;
+    background-color: v.$white;
+    border-radius: 10px;
+
+    @include m.respond-to("tablet") {
+      display: grid;
+      grid-template-columns: 3fr 1fr;
+      grid-template-rows: repeat(4, 1fr);
+      column-gap: 2em;
+    }
+  }
+
+  &-header {
+    color: v.$theme-blue;
+
+    & h2 {
+      margin: 0;
     }
 
-    &-loader {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        padding: 5em;
+    @include m.respond-to("tablet") {
+      grid-area: 1/1/2/2;
+      border-right: solid 1px v.$line-gray;
     }
+  }
+
+  &-about {
+    padding-block: 0 2em;
+    border-bottom: solid 1px v.$line-gray;
+
+    &__heading {
+      display: none;
+    }
+
+    &__tags {
+      display: inline-block;
+    }
+
+    &__tag {
+      padding: 0.35em;
+      background-color: v.$bg-blue;
+      color: v.$theme-blue;
+      border-radius: 20px;
+      width: fit-content;
+    }
+
+    @include m.respond-to("tablet") {
+      grid-area: 1/2/3/-1;
+      border-bottom: none;
+
+      &__heading {
+        display: block;
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        color: v.$heading-gray;
+      }
+    }
+  }
+
+  &-bg {
+    width: 100%;
+    height: 10em;
+    background: url(../../assets/github-inverted-300.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-block: 3em;
+    order: 2;
+
+
+    @include m.respond-to("tablet") {
+      grid-area: 2/1/-1/2;
+      height: 100%;
+      margin: 0;
+      border-right: solid 1px v.$line-gray;
+    }
+  }
+
+  &-stats {
+    display: flex;
+    justify-content: flex-start;
+    color: v.$text-gray-light;
+  }
+
+  &-stat {
+    display: flex;
+    align-items: center;
+    margin-right: 1em;
+  }
+
+  &-stars__icon {
+    @include m.create-btn-icon(url(../../assets/Star.svg), 1.5em, 1.5em);
+    margin-right: 0.5em;
+  }
+
+  &-forks__icon {
+    @include m.create-btn-icon(url(../../assets/repo-forked.svg), 1.5em, 1.5em);
+    margin-right: 0.5em;
+  }
+
+  &-addons {
+    order: 2;
+    @include m.respond-to("tablet") {
+      grid-area: 3/2/5/-1;
+    }
+  }
+
+  &-addon {
+    border-top: solid 1px v.$line-gray;
+
+    & h4 {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      color: v.$heading-gray;
+      margin-bottom: 0;
+    }
+
+    p {
+      padding-block: 1.5em;
+      margin-top: 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__link {
+      padding: 0;
+      border: none;
+      color: v.$theme-blue;
+      background-color: v.$white;
+      font-family: v.$red-hat;
+      text-align: start;
+    }
+  }
 }
