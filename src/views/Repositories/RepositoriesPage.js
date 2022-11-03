@@ -38,7 +38,7 @@ export default function RepositoriesPage({ owner }) {
   return (
     <>
       <main className="repos-main tab-main">
-        <StatusBar />
+        <StatusBar totalRepos={repos.length} />
         <RepoList data={currentRepos} loading={loading} />
         <Pagination
           repos={repos}
