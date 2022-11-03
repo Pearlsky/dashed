@@ -16,6 +16,7 @@ import SecurityPage from "../views/Security/SecurityPage";
 import "./App.scss";
 import UtilityBar from "./UtilityBar";
 import IndividualRepoPage from "../views/Repositories/IndividualRepoPage";
+import ErrorBoundary from "./ErrorBoundary";
 
 export default function App() {
   const [user, setUser] = useState("");
@@ -24,20 +25,26 @@ export default function App() {
   useEffect(() => {
     const fetchUser = () => {
       fetch(`https://api.github.com/users/${owner}`)
-      .then((response) => response.json())
-      .then((data) => setUser(data) )
-      .catch(() => {
-        throw new Error();
-      })
-    }
+        .then((response) => response.json())
+        .then((data) => setUser(data))
+        .catch(() => {
+          throw new Error();
+        });
+    };
 
     fetchUser();
   }, [owner]);
 
   const userAvatar = user ? (
-    <img alt="user-avatar" src={user.avatar_url} className="user-img__real"></img>
+    <img
+      alt="user-avatar"
+      src={user.avatar_url}
+      className="user-img__real"
+    ></img>
   ) : (
-    <div className="user-img__fake"><span>AU</span></div>
+    <div className="user-img__fake">
+      <span>AU</span>
+    </div>
   );
   return (
     <div className="app">
@@ -90,11 +97,22 @@ export default function App() {
 
         <Routes>
           <Route path="/repos" element={<RepositoriesPage owner={owner} />} />
-          <Route path="/repo/*" element={<IndividualRepoPage owner={owner}/>} />
+          <Route
+            path="/repo/*"
+            element={<IndividualRepoPage owner={owner} />}
+          />
           <Route strict path="/activity" element={<ActivityPage />} />
           <Route strict path="/people" element={<PeoplePage />} />
           <Route strict path="/preferences" element={<PreferencesPage />} />
-          <Route strict path="/security" element={<SecurityPage />} />
+          <Route
+            strict
+            path="/security"
+            element={
+              <ErrorBoundary>
+                <SecurityPage />
+              </ErrorBoundary>
+            }
+          />
         </Routes>
       </main>
     </div>
