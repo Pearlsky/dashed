@@ -1,0 +1,48 @@
+@use "../util/mixins.scss" as m;
+@use "../util/variables.scss" as v;
+
+.error-main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding-block: 3.5em ;
+  padding-inline: 1.5em;
+
+  @include m.respond-to("tablet") {
+    padding-block: 6em;
+    padding-inline: 2em;
+    flex-direction: row;
+  }
+}
+
+.error-illus {
+  & img {
+    max-width: 100%;
+  }
+}
+
+.error-message {
+  @include m.respond-to('tablet') {
+    flex-basis: 60%;
+  }
+
+  @include m.respond-to('desktop') {
+    flex-basis: 40%;
+  }
+
+  &__heading {
+    font-size: 3rem;
+    color: v.$theme-blue;
+  }
+
+  &__text {
+    font-size: 1.1rem;
+  }
+
+  &__backlink {
+    color: v.$theme-blue;
+    text-decoration: underline;
+    font-size: 1.2em;
+  }
+}
