@@ -38,9 +38,17 @@
 
   &-header {
     color: v.$theme-blue;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
 
     & h2 {
       margin: 0;
+    }
+
+    &__icon {
+      @include m.create-btn-icon(url(../../assets/repo-theme.svg), 2em, 2em);
+      margin-right: 1em;
     }
 
     @include m.respond-to("tablet") {
