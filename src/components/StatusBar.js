@@ -1,6 +1,6 @@
 import "./StatusBar.scss";
 
-export default function StatusBar() {
+export default function StatusBar({ totalRepos }) {
   return (
     <section className="stats-panel">
       <div className="stats-intro">
@@ -12,12 +12,12 @@ export default function StatusBar() {
         <article className="stats-detail">
             <span className="stats-detail__icon total"></span>
             <span className="stats-detail__title">Total</span>
-            <span className="stats-detail__figure">0</span>
+            <span className="stats-detail__figure">{totalRepos}</span>
         </article>
         <article className="stats-detail">
             <span className="stats-detail__icon public"></span>
             <span className="stats-detail__title">Public</span>
-            <span className="stats-detail__figure">0</span>
+            <span className="stats-detail__figure">{totalRepos}</span>
         </article>
         <article className="stats-detail">
             <span className="stats-detail__icon private"></span>
