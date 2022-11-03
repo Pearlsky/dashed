@@ -1,6 +1,6 @@
 import "./RepoCard.scss";
 
-import gitLogoSmall from "../assets/github-inverted.svg";
+import gitLogoSmall from "../assets/git-to.svg";
 import { Link } from "react-router-dom";
 
 export default function RepoCard({ name, desc, created }) {
