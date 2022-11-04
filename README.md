@@ -3,7 +3,7 @@
 Dashed is an examination project to implement a bunch of things covered this semester w/ React JS.
 cc: Altschool Africa.
 
-You can view the demo [here](https://dashed.vercel.app)
+You can view the demo here: [https://dashed.vercel.app](https://dashed.vercel.app)
 
 
 <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/0e23c8f2be98447ca4daf3d2bc43d180-with-play.gif">
