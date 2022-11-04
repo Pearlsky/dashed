@@ -41,14 +41,16 @@
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
-
+    width: 100%;
+    
+    
     & h2 {
       margin: 0;
     }
 
     &__icon {
       @include m.create-btn-icon(url(../../assets/repo-theme.svg), 2em, 2em);
-      margin-right: 1em;
+      margin-right: 0.5em;
     }
 
     @include m.respond-to("tablet") {
@@ -99,7 +101,6 @@
     background-size: contain;
     margin-block: 3em;
     order: 2;
-
 
     @include m.respond-to("tablet") {
       grid-area: 2/1/-1/2;
