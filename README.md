@@ -5,10 +5,11 @@ cc: Altschool Africa.
 
 You can view the demo [here](https://dashed.vercel.app)
 
-<a href="https://www.loom.com/share/0e23c8f2be98447ca4daf3d2bc43d180">
-    <p>Dashed | Dashboard for all your repo needs - 4 November 2022 - Watch Video</p>
-    <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/0e23c8f2be98447ca4daf3d2bc43d180-with-play.gif">
-</a>
+
+[<img src="https://i.ytimg.com/vi/Hc79sDi3f0U/maxresdefault.jpg" width="50%">](https://www.youtube.com/watch?v=Hc79sDi3f0U "Now in Android: 55")
+
+<img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/0e23c8f2be98447ca4daf3d2bc43d180-with-play.gif">
+
 
 ## Features
 
