@@ -55,7 +55,7 @@ export default function App() {
         <nav className="nav">
           <ul className="nav__list">
             <li className="nav__item">
-              <NavLink to="/repos" className="nav__link">
+              <NavLink to="/" className="nav__link">
                 <img alt="" className="nav__link__icon" src={stack} />
                 <span className="nav__link__text">Repositories</span>
               </NavLink>
@@ -96,7 +96,7 @@ export default function App() {
         <UtilityBar />
 
         <Routes>
-          <Route path="/repos" element={<RepositoriesPage owner={owner} />} />
+          <Route path="/" element={<RepositoriesPage owner={owner} />} />
           <Route
             path="/repo/*"
             element={<IndividualRepoPage owner={owner} />}
