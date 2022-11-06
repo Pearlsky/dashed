@@ -42,7 +42,7 @@ export function ErrorFallbackUI() {
           Look, you might have clicked a link to a broken page. Now we're
           confused and you're confused, can we just
         </p>
-        <Link to="/repos" className="error-message__backlink">Go Back to Repositories?</Link>
+        <Link to="/" className="error-message__backlink">Go Back to Repositories?</Link>
       </div>
     </section>
   );
