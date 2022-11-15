@@ -1,4 +1,4 @@
-import { Routes, Route, NavLink } from "react-router-dom";
+import { Routes, Route, NavLink} from "react-router-dom";
 import { useState, useEffect } from "react";
 
 import stack from "../assets/Stack.svg";
@@ -55,7 +55,7 @@ export default function App() {
         <nav className="nav">
           <ul className="nav__list">
             <li className="nav__item">
-              <NavLink to="/" className="nav__link">
+              <NavLink to="/" className="nav__link" end>
                 <img alt="" className="nav__link__icon" src={stack} />
                 <span className="nav__link__text">Repositories</span>
               </NavLink>
@@ -73,7 +73,7 @@ export default function App() {
               </NavLink>
             </li>
             <li className="nav__item">
-              <NavLink to="preferences" className="nav__link">
+              <NavLink to="/preferences" className="nav__link">
                 <img alt="" className="nav__link__icon" src={pref} />
                 <span className="nav__link__text">Preferences</span>
               </NavLink>
@@ -96,9 +96,9 @@ export default function App() {
         <UtilityBar />
 
         <Routes>
-          <Route path="/" element={<RepositoriesPage owner={owner} />} />
+          <Route strict path="/" element={<RepositoriesPage owner={owner} />} />
           <Route
-            path="/repo/*"
+             path="/repo/*"
             element={<IndividualRepoPage owner={owner} />}
           />
           <Route strict path="/activity" element={<ActivityPage />} />

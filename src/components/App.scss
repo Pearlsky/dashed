@@ -119,8 +119,8 @@ button {
     }
   }
 
+  &__link.active,
   &__link:active,
-  &__link:focus,
   &__link:hover {
     background-color: v.$bg-blue;
     border-bottom: solid 2px v.$theme-blue;

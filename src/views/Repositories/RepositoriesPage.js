@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { Routes, Route } from "react-router-dom";
 
 import { InfinitySpin } from "react-loader-spinner";
 
@@ -8,7 +7,6 @@ import RepoCard from "../../components/RepoCard";
 import StatusBar from "../../components/StatusBar";
 
 import "./RepoPage.scss";
-import IndividualRepoPage from "./IndividualRepoPage";
 
 export default function RepositoriesPage({ owner }) {
   const [repos, setRepos] = useState([]);
@@ -47,9 +45,6 @@ export default function RepositoriesPage({ owner }) {
           setCurrentPage={setCurrentPage}
         />
       </main>
-      <Routes>
-        <Route path=":name" element={<IndividualRepoPage />} />
-      </Routes>
     </>
   );
 }
