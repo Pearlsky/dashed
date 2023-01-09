@@ -1,8 +1,6 @@
 import { Component } from "react";
-import { Link } from "react-router-dom";
 
-import Ex from "../assets/ex.svg";
-
+import cosmos from "../assets/cosmos.svg"
 import "./ErrorBoundary.scss";
 
 export default class ErrorBoundary extends Component {
@@ -23,7 +21,7 @@ export default class ErrorBoundary extends Component {
 
   render() {
     if (this.state.hasError) {
-      return <ErrorFallbackUI/>;
+      return <ErrorFallbackUI />;
     }
 
     return this.props.children;
@@ -31,18 +29,20 @@ export default class ErrorBoundary extends Component {
 }
 
 export function ErrorFallbackUI() {
+  const refreshPage = () => {
+    window.location.reload();
+  };
   return (
     <section className="error-main">
       <div className="error-illus">
-        <img alt="404 Illustration" src={Ex}/>
+        <img alt="404 Illustration" src={cosmos} />
       </div>
       <div className="error-message">
-        <h1 className="error-message__heading">404 Bustops and Digital Sapa</h1>
+        <h1 className="error-message__heading">Oh No! We hoped you wouldn't get here.</h1>
         <p className="error-message__text">
-          Look, you might have clicked a link to a broken page. Now we're
-          confused and you're confused, can we just
+          E pele dear, it looks like you tried something that doesn't work.
         </p>
-        <Link to="/" className="error-message__backlink">Go Back to Repositories?</Link>
+        <button className="error-message__backlink" onClick={refreshPage}>Go Back Home?</button>
       </div>
     </section>
   );
