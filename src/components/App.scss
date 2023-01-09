@@ -1,5 +1,5 @@
-@use "../util/variables.scss" as v;
-@use "../util/mixins.scss" as m;
+@use "../style-utils/variables.scss" as v;
+@use "../style-utils/mixins.scss" as m;
 
 :root {
   box-sizing: border-box;
@@ -50,6 +50,10 @@ button {
 // Grid
 
 .app {
+  width: 100%;
+}
+
+.view {
   display: block;
 
   @include m.respond-to("tablet") {
