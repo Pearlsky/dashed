@@ -1,16 +1,16 @@
-@use "../util/mixins.scss" as m;
-@use "../util/variables.scss" as v;
+@use "../style-utils/mixins.scss" as m;
+@use "../style-utils/variables.scss" as v;
 
 .error-main {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  padding-block: 3.5em ;
+  padding-block: 9em ;
   padding-inline: 1.5em;
 
   @include m.respond-to("tablet") {
-    padding-block: 6em;
+    padding-block: 15em;
     padding-inline: 2em;
     flex-direction: row;
   }
@@ -29,6 +29,13 @@
 
   @include m.respond-to('desktop') {
     flex-basis: 40%;
+  }
+
+  button {
+    padding-inline: 0;
+    font-family: v.$red-hat;
+    background-color: transparent;
+    border: none;
   }
 
   &__heading {
