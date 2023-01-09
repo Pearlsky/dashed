@@ -1,5 +1,5 @@
-@use  "../util/mixins.scss" as m;
-@use "../util/variables.scss" as v;
+@use  "../style-utils/mixins.scss" as m;
+@use "../style-utils/variables.scss" as v;
 
 .repo-card {
     background-color: v.$white;
