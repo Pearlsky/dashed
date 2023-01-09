@@ -1,8 +1,9 @@
-import { useState } from "react";
-
 export default function SecurityPage() {
-    const [state] = useState(0);
     return (
-        <main className="tab-main "><button>{state.upperCase()}</button></main>
-    );
+        <main className="tab-main untab">
+            <section className="wip-section">
+                <h1>Oops, I'm a Security Tab in progress. Try other tabs?</h1>
+            </section>
+        </main>
+    )
 }
